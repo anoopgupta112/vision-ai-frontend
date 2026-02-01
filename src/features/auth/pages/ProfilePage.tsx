@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function ProfilePage() {
     const { user, updateUser } = useAuthStore();
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: {
             email: user?.email || '',
         },

@@ -57,7 +57,7 @@ export default function JobsList() {
                                     </td>
                                     <td className="p-4 align-middle">{job.leads_delivered}/{job.leads_requested}</td>
                                     <td className="p-4 align-middle flex gap-2">
-                                        <Button variant="outline" size="sm" asSlot={true}>
+                                        <Button variant="outline" size="sm" asChild>
                                             <a href={`/lead-gen/jobs/${job.id}`}>View</a>
                                         </Button>
                                         {job.status === 'queued' && (
