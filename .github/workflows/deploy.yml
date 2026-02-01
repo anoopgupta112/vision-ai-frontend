@@ -34,9 +34,21 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "dist/*"
-          target: "/var/www/vision-ai-frontend"
-          strip_components: 1
+          source: "dist/"
+          target: "/var/www/"
+          strip_components: 0
+          overwrite: true
+      
+      - name: Rename directory
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /var/www/vision-ai-frontend
+            mv /var/www/dist /var/www/vision-ai-frontend
+            ls -la /var/www/vision-ai-frontend/
       
       - name: Restart Nginx
         uses: appleboy/ssh-action@v1.0.3
