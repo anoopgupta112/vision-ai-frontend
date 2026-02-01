@@ -19,7 +19,7 @@ export default function DashboardPage() {
                             <MapPin className="h-6 w-6 text-blue-600" />
                         </div>
                         <CardTitle>Lead Generator</CardTitle>
-                        <CardDescription>Extract business leads from Google Maps</CardDescription>
+                        <CardDescription>Extract the business leads from Google Maps</CardDescription>
                     </CardHeader>
                     <CardContent className="flex-1">
                         <p className="text-sm text-muted-foreground mb-4">
