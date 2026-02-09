@@ -1,13 +1,7 @@
 import CreateJobForm from '../components/CreateJobForm';
 import JobsList from '../components/JobsList';
 import CreditsHistory from '../components/CreditsHistory';
-// Shadcn Tabs needed. I'll manually create basic Tabs or assume I have them?
-// I don't have Tabs component yet. I will simulate it or create it.
-// Let's create Tabs component quickly first.
-
-// Wait, I can't restart the tool sequence. I will write a simple layout first.
-// I'll just stack them for now, or use a simple state for toggling.
-
+import RequestCreditsCard from '../components/RequestCreditsCard';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -27,14 +21,22 @@ export default function LeadGenPage() {
                 </div>
             </div>
 
-            {view === 'jobs' ? (
-                <>
-                    <CreateJobForm />
-                    <JobsList />
-                </>
-            ) : (
-                <CreditsHistory />
-            )}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-2 space-y-6">
+                    {view === 'jobs' ? (
+                        <>
+                            <CreateJobForm />
+                            <JobsList />
+                        </>
+                    ) : (
+                        <CreditsHistory />
+                    )}
+                </div>
+                <div className="space-y-6">
+                    <RequestCreditsCard />
+                </div>
+            </div>
         </div>
     );
 }
+

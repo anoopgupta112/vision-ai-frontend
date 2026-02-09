@@ -10,6 +10,16 @@ export const registerUser = async (data: any) => {
     return response.data;
 };
 
+export const verifyOtp = async (data: { email: string; code: string }) => {
+    const response = await api.post('/auth/verify-otp', data);
+    return response.data;
+};
+
+export const resendOtp = async (email: string) => {
+    const response = await api.post('/auth/resend-otp', { email });
+    return response.data;
+};
+
 export const getMe = async () => {
     const response = await api.get('/auth/me');
     return response.data;
