@@ -129,9 +129,14 @@ export default function RegisterForm() {
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="code">OTP Code</Label>
                                 <Input
-                                    id="code"
+                                    id="otp-code-input"
+                                    type="text"
+                                    inputMode="numeric"
                                     placeholder="Enter 6-digit OTP"
                                     maxLength={6}
+                                    autoComplete="off"
+                                    data-lpignore="true"
+                                    data-form-type="other"
                                     className="text-center text-2xl tracking-widest"
                                     {...otpForm.register('code')}
                                 />
