@@ -124,17 +124,24 @@ export default function RegisterForm() {
                     </div>
                 </CardHeader>
                 <CardContent>
-                    <form onSubmit={otpForm.handleSubmit(onOtpSubmit)}>
+                    <form onSubmit={otpForm.handleSubmit(onOtpSubmit)} autoComplete="off">
+                        {/* Hidden fields to absorb autofill */}
+                        <input type="email" name="prevent-autofill-email" style={{ display: 'none' }} tabIndex={-1} />
+                        <input type="password" name="prevent-autofill-pass" style={{ display: 'none' }} tabIndex={-1} />
                         <div className="grid w-full items-center gap-4">
                             <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="code">OTP Code</Label>
+                                <Label htmlFor="otp-code-input">OTP Code</Label>
                                 <Input
                                     id="otp-code-input"
                                     type="text"
                                     inputMode="numeric"
-                                    placeholder="Enter 6-digit OTP"
+                                    pattern="[0-9]*"
+                                    placeholder="000000"
                                     maxLength={6}
                                     autoComplete="off"
+                                    autoCorrect="off"
+                                    autoCapitalize="off"
+                                    spellCheck={false}
                                     data-lpignore="true"
                                     data-form-type="other"
                                     className="text-center text-2xl tracking-widest"
