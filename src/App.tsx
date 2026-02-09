@@ -7,9 +7,16 @@ import RegisterPage from '@/pages/RegisterPage';
 import DashboardPage from '@/features/dashboard/DashboardPage';
 import LeadGenPage from '@/features/lead-gen/pages/LeadGenPage';
 import JobDetailsPage from '@/features/lead-gen/pages/JobDetailsPage';
+import BuyCreditsPage from '@/features/lead-gen/pages/BuyCreditsPage';
+import PaymentHistoryPage from '@/features/lead-gen/pages/PaymentHistoryPage';
+import PaymentStatusPage from '@/features/lead-gen/pages/PaymentStatusPage';
 import ProfilePage from '@/features/auth/pages/ProfilePage';
 import AdminPage from '@/features/admin-dashboard/pages/AdminPage';
 import LandingPage from '@/pages/LandingPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import RefundPolicyPage from '@/pages/RefundPolicyPage';
+import TermsOfServicePage from '@/pages/TermsOfServicePage';
+import ContactPage from '@/pages/ContactPage';
 import RequireAuth from '@/components/RequireAuth';
 
 const queryClient = new QueryClient()
@@ -25,6 +32,10 @@ function App() {
                         {/* Public Routes */}
                         <Route path="/auth/login" element={<LoginPage />} />
                         <Route path="/auth/register" element={<RegisterPage />} />
+                        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                        <Route path="/refund-policy" element={<RefundPolicyPage />} />
+                        <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                        <Route path="/contact" element={<ContactPage />} />
 
                         {/* Protected Routes */}
                         <Route path="/dashboard" element={
@@ -47,6 +58,30 @@ function App() {
                             <RequireAuth>
                                 <Layout>
                                     <JobDetailsPage />
+                                </Layout>
+                            </RequireAuth>
+                        } />
+
+                        <Route path="/lead-gen/buy-credits" element={
+                            <RequireAuth>
+                                <Layout>
+                                    <BuyCreditsPage />
+                                </Layout>
+                            </RequireAuth>
+                        } />
+
+                        <Route path="/lead-gen/payment-history" element={
+                            <RequireAuth>
+                                <Layout>
+                                    <PaymentHistoryPage />
+                                </Layout>
+                            </RequireAuth>
+                        } />
+
+                        <Route path="/lead-gen/payment/status" element={
+                            <RequireAuth>
+                                <Layout>
+                                    <PaymentStatusPage />
                                 </Layout>
                             </RequireAuth>
                         } />

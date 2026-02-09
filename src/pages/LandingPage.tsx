@@ -82,6 +82,20 @@ export default function LandingPage() {
                     <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
                         © 2024 LeadsPro Inc. All rights reserved.
                     </p>
+                    <nav className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+                        <Link to="/privacy-policy" className="hover:text-foreground transition-colors">
+                            Privacy Policy
+                        </Link>
+                        <Link to="/refund-policy" className="hover:text-foreground transition-colors">
+                            Refund Policy
+                        </Link>
+                        <Link to="/terms-of-service" className="hover:text-foreground transition-colors">
+                            Terms of Service
+                        </Link>
+                        <Link to="/contact" className="hover:text-foreground transition-colors">
+                            Contact
+                        </Link>
+                    </nav>
                 </div>
             </footer>
         </div>

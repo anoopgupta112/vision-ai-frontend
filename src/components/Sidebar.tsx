@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { LayoutDashboard, Users, Database, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Database, Settings, LogOut, CreditCard } from 'lucide-react';
 import { useAuthStore } from '@/features/auth/authStore';
 
 const sidebarItems = [
     { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
     { icon: Database, label: 'Lead Generator', href: '/lead-gen' },
+    { icon: CreditCard, label: 'Payments', href: '/lead-gen/payment-history' },
     { icon: Users, label: 'Admin', href: '/admin', adminOnly: true },
     { icon: Settings, label: 'Profile', href: '/profile' },
 ];
@@ -15,7 +16,7 @@ export default function Sidebar() {
     const { user, logout } = useAuthStore();
 
     return (
-        <div className="flex h-screen w-64 flex-col border-r bg-card text-card-foreground">
+        <div className="fixed left-0 top-0 flex h-screen w-64 flex-col border-r bg-card text-card-foreground">
             <div className="p-6">
                 <h2 className="text-2xl font-bold tracking-tight text-primary">LeadsPro</h2>
             </div>
