@@ -10,7 +10,7 @@ export default function LeadGenPage() {
 
     return (
         <div className="space-y-6">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
                 <div>
                     <h2 className="text-3xl font-bold tracking-tight">Lead Generator</h2>
                     <p className="text-muted-foreground">Manage your extraction jobs and view leads.</p>

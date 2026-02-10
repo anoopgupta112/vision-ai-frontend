@@ -32,17 +32,17 @@ export default function JobDetailsPage() {
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 overflow-hidden">
             <div>
-                <h2 className="text-3xl font-bold tracking-tight">Job Details</h2>
-                <p className="text-muted-foreground">Viewing details for job {id}</p>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Job Details</h2>
+                <p className="text-muted-foreground text-sm sm:text-base truncate">Viewing details for job {id}</p>
             </div>
 
             <Card>
                 <CardHeader>
                     <CardTitle>Overview</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-4">
+                <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <p className="text-sm font-medium text-muted-foreground">Query</p>
                         <p className="text-lg">{job.query_text || 'N/A'}</p>

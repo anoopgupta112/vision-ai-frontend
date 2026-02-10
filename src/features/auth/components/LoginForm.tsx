@@ -65,7 +65,7 @@ export default function LoginForm() {
     };
 
     return (
-        <Card className="w-[350px]">
+        <Card className="w-full max-w-sm mx-auto">
             <CardHeader>
                 <CardTitle>Login</CardTitle>
                 <CardDescription>Enter your credentials to access your account.</CardDescription>
