@@ -1,40 +1,27 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Zap, FileText, User, CreditCard, AlertTriangle, Scale, Mail } from 'lucide-react';
+import { FileText, User, CreditCard, AlertTriangle, Scale, Mail } from 'lucide-react';
+import PublicHeader from '@/components/PublicHeader';
 
 export default function TermsOfServicePage() {
     return (
         <div className="flex min-h-screen flex-col">
-            <header className="px-6 h-16 flex items-center justify-between border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-                <Link to="/" className="flex items-center gap-2">
-                    <Zap className="h-6 w-6 text-primary" />
-                    <span className="text-xl font-bold tracking-tight">LeadsPro</span>
-                </Link>
-                <nav className="flex items-center gap-4">
-                    <Link to="/auth/login">
-                        <Button variant="ghost">Login</Button>
-                    </Link>
-                    <Link to="/auth/register">
-                        <Button>Get Started</Button>
-                    </Link>
-                </nav>
-            </header>
+            <PublicHeader />
 
             <main className="flex-1">
-                <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/50">
+                <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-background to-muted/50">
                     <div className="container px-4 md:px-6 mx-auto text-center space-y-4">
                         <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                             <FileText className="h-8 w-8 text-primary" />
                         </div>
-                        <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl">
+                        <h1 className="text-3xl font-extrabold tracking-tighter sm:text-4xl md:text-5xl">
                             Terms of Service
                         </h1>
                         <p className="text-muted-foreground">Last updated: February 9, 2026</p>
                     </div>
                 </section>
 
-                <section className="py-12 bg-background">
+                <section className="py-8 sm:py-12 bg-background">
                     <div className="container px-4 md:px-6 mx-auto max-w-4xl">
                         <div className="grid gap-6">
                             <Card className="p-6 rounded-xl border bg-card shadow-sm">
@@ -126,7 +113,7 @@ export default function TermsOfServicePage() {
                 </section>
             </main>
 
-            <footer className="py-6 md:px-8 border-t">
+            <footer className="py-6 px-4 md:px-8 border-t">
                 <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
                     <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
                         © 2024 LeadsPro Inc. All rights reserved.

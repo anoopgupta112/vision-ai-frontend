@@ -35,19 +35,19 @@ export default function JobsList() {
                     <table className="w-full caption-bottom text-sm">
                         <thead className="[&_tr]:border-b">
                             <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Date</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Query</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Leads</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Actions</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground hidden sm:table-cell">Date</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Query</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Leads</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Actions</th>
                             </tr>
                         </thead>
                         <tbody className="[&_tr:last-child]:border-0">
                             {jobs?.map((job: Job) => (
                                 <tr key={job.id} className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                                    <td className="p-4 align-middle">{format(new Date(job.created_at), 'PPP')}</td>
-                                    <td className="p-4 align-middle">{job.query_text}</td>
-                                    <td className="p-4 align-middle">
+                                    <td className="p-2 sm:p-4 align-middle hidden sm:table-cell">{format(new Date(job.created_at), 'PPP')}</td>
+                                    <td className="p-2 sm:p-4 align-middle">{job.query_text}</td>
+                                    <td className="p-2 sm:p-4 align-middle">
                                         <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold
                                     ${job.status === 'done' ? 'bg-green-100 text-green-800' :
                                                 job.status === 'failed' ? 'bg-red-100 text-red-800' :
@@ -55,8 +55,8 @@ export default function JobsList() {
                                             {job.status}
                                         </span>
                                     </td>
-                                    <td className="p-4 align-middle">{job.leads_delivered}/{job.leads_requested}</td>
-                                    <td className="p-4 align-middle flex gap-2">
+                                    <td className="p-2 sm:p-4 align-middle">{job.leads_delivered}/{job.leads_requested}</td>
+                                    <td className="p-2 sm:p-4 align-middle flex gap-1 sm:gap-2">
                                         <Button variant="outline" size="sm" asChild>
                                             <a href={`/lead-gen/jobs/${job.id}`}>View</a>
                                         </Button>

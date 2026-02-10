@@ -28,8 +28,8 @@ export default function PaymentHistoryPage() {
     }
 
     return (
-        <div className="space-y-6">
-            <div className="flex justify-between items-center">
+        <div className="space-y-6 overflow-hidden">
+            <div className="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
                 <div>
                     <h1 className="text-3xl font-bold">Payment History</h1>
                     <p className="text-muted-foreground">View all your credit purchases</p>
@@ -68,11 +68,11 @@ export default function PaymentHistoryPage() {
                             <table className="w-full caption-bottom text-sm">
                                 <thead className="[&_tr]:border-b">
                                     <tr className="border-b">
-                                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Date</th>
-                                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Order ID</th>
-                                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Amount</th>
-                                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Credits</th>
-                                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
+                                        <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Date</th>
+                                        <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground hidden sm:table-cell">Order ID</th>
+                                        <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Amount</th>
+                                        <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Credits</th>
+                                        <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody className="[&_tr:last-child]:border-0">
@@ -81,19 +81,19 @@ export default function PaymentHistoryPage() {
                                         const StatusIcon = status.icon;
                                         return (
                                             <tr key={tx.id} className="border-b transition-colors hover:bg-muted/50">
-                                                <td className="p-4 align-middle">
-                                                    {format(new Date(tx.created_at), 'PPP p')}
+                                                <td className="p-2 sm:p-4 align-middle text-xs sm:text-sm">
+                                                    {format(new Date(tx.created_at), 'PP')}
                                                 </td>
-                                                <td className="p-4 align-middle font-mono text-xs">
+                                                <td className="p-2 sm:p-4 align-middle font-mono text-xs hidden sm:table-cell">
                                                     {tx.order_id}
                                                 </td>
-                                                <td className="p-4 align-middle font-semibold">
+                                                <td className="p-2 sm:p-4 align-middle font-semibold">
                                                     {tx.display_amount}
                                                 </td>
-                                                <td className="p-4 align-middle">
-                                                    +{tx.credits} credits
+                                                <td className="p-2 sm:p-4 align-middle text-xs sm:text-sm">
+                                                    +{tx.credits}
                                                 </td>
-                                                <td className="p-4 align-middle">
+                                                <td className="p-2 sm:p-4 align-middle">
                                                     <Badge variant="outline" className={`gap-1 ${status.color}`}>
                                                         <StatusIcon className="h-3 w-3" />
                                                         {status.label}

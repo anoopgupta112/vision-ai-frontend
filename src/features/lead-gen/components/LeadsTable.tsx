@@ -36,11 +36,11 @@ export default function LeadsTable({ jobId }: { jobId: string }) {
 
     return (
         <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2">
                 <CardTitle>Extracted Leads</CardTitle>
                 <Button onClick={handleDownload} variant="outline" size="sm">
                     <Download className="mr-2 h-4 w-4" />
-                    Download CSV
+                    <span className="hidden sm:inline">Download</span> CSV
                 </Button>
             </CardHeader>
             <CardContent>
@@ -48,21 +48,21 @@ export default function LeadsTable({ jobId }: { jobId: string }) {
                     <table className="w-full caption-bottom text-sm">
                         <thead className="[&_tr]:border-b sticky top-0 bg-white">
                             <tr className="border-b">
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Name</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Phone</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Website</th>
-                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Address</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Name</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground">Phone</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground hidden sm:table-cell">Website</th>
+                                <th className="h-10 sm:h-12 px-2 sm:px-4 text-left align-middle font-medium text-muted-foreground hidden md:table-cell">Address</th>
                             </tr>
                         </thead>
                         <tbody className="[&_tr:last-child]:border-0">
                             {leads?.map((lead: any, index: number) => (
                                 <tr key={index} className="border-b transition-colors hover:bg-muted/50">
-                                    <td className="p-4 align-middle font-medium">{lead.name}</td>
-                                    <td className="p-4 align-middle">{lead.phone || 'N/A'}</td>
-                                    <td className="p-4 align-middle">
-                                        {lead.website ? <a href={lead.website} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">{lead.website}</a> : 'N/A'}
+                                    <td className="p-2 sm:p-4 align-middle font-medium">{lead.name}</td>
+                                    <td className="p-2 sm:p-4 align-middle">{lead.phone || 'N/A'}</td>
+                                    <td className="p-2 sm:p-4 align-middle hidden sm:table-cell">
+                                        {lead.website ? <a href={lead.website} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline break-all">{lead.website}</a> : 'N/A'}
                                     </td>
-                                    <td className="p-4 align-middle">{lead.address || 'N/A'}</td>
+                                    <td className="p-2 sm:p-4 align-middle hidden md:table-cell">{lead.address || 'N/A'}</td>
                                 </tr>
                             ))}
                             {!leads?.length && (

@@ -108,7 +108,7 @@ export default function AdminPage() {
         <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
 
-            <div className="grid gap-4 md:grid-cols-4">
+            <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">Total Users</CardTitle>
@@ -148,7 +148,7 @@ export default function AdminPage() {
             </div>
 
             {/* Tabs */}
-            <div className="flex gap-2 border-b pb-2">
+            <div className="flex flex-wrap gap-2 border-b pb-2">
                 <Button
                     variant={activeTab === 'users' ? 'default' : 'ghost'}
                     onClick={() => setActiveTab('users')}

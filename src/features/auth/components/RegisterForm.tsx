@@ -106,7 +106,7 @@ export default function RegisterForm() {
 
     if (step === 'verify') {
         return (
-            <Card className="w-[400px]">
+            <Card className="w-full max-w-md mx-auto">
                 <CardHeader>
                     <div className="flex items-center gap-2">
                         <Button
@@ -181,7 +181,7 @@ export default function RegisterForm() {
     }
 
     return (
-        <Card className="w-[400px]">
+        <Card className="w-full max-w-md mx-auto">
             <CardHeader>
                 <CardTitle>Create Account</CardTitle>
                 <CardDescription>Enter your details to get started.</CardDescription>
